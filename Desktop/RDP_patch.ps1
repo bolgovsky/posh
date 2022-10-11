@@ -1,6 +1,13 @@
 # PowerShell скрипт модифицирует файл termsrv.dll, разрешая множественные RDP подключения к рабочим станциям на базе Windows 10 (1809 и выше) и Windows 11
 # Подробности https://winitpro.ru/index.php/2015/09/02/neskolko-rdp-sessij-v-windows-10/
 
+# Чтобы выполнить скрипт, скачайте его на свой компьютер. Измените настройки политики запуска скриптов PowerShell:
+# Set-ExecutionPolicy Bypass -Scope Process -Force
+
+# Запустите скрипт:
+# C:\users\root\desktop\rdp_patch.ps1
+
+
 <# what to find 
 Windows 11 RTM ( 21H2 22000.258)	39 81 3C 06 00 00 0F 84 4F 68 01 00	 
 Windows 10 x64 21H2	39 81 3C 06 00 00 0F 84 DB 61 01 00
@@ -17,6 +24,8 @@ Windows 10 x64 1709	39 81 3C 06 00 00 0F 84 B1 7D 02 00
 <# replace to 
 B8 00 01 00 00 89 81 38 06 00 00 90 
 #>
+
+
 
 # Остановить службу, сделать копию файл и изменить разрешения
 Stop-Service UmRdpService -Force
